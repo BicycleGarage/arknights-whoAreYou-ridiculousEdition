@@ -102,7 +102,7 @@ function showResult() {
     const resultList = document.getElementById('result-list');
     const instruction = document.getElementById('instruction');
 
-    questionContainer.textContent = "游戏结束，感谢您的参与！";
+    questionContainer.style.display = 'none';
     optionsContainer.style.display = 'none';
     nextButton.style.display = 'none';
     resultContainer.style.display = 'block';
