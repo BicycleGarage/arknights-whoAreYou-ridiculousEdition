@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>干员设定小测试</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="title-container">
+            <h1 id="main-title">干员设定小测试</h1>
+            <h2 id="sub-title">（飞舞制造机）</h2>
+            <p id="instruction">点击图片停止</p>
+        </div>
+        <div id="question-container">
+            <h2 id="question">这里是问题文本</h2>
+        </div>
+        <div id="options-container">
+            <!-- 选项按钮将动态生成 -->
+        </div>
+        <button id="next-button" style="visibility: hidden;">下一步</button>
+        <div id="result-container" style="display: none;">
+            <h2>你的干员设定：</h2>
+            <div id="result-list"></div>
+            <button id="screenshot-button">一键截图</button>
+        </div>
+    </div>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</html>

@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px; /* 预留足够的空间 */
+}
+
+#title-container {
+    margin-bottom: 20px;
+}
+
+#main-title {
+    margin: 0;
+    font-size: 24px;
+}
+
+#subtitle {
+    margin: 0;
+    font-size: 18px;
+    color: #555;
+}
+
+#instruction {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #888;
+}
+
+#question-container {
+    margin-bottom: 20px;
+}
+
+#options-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#options-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#next-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    visibility: hidden; /* 初始隐藏 */
+}
+
+#next-button:hover {
+    background-color: #0056b3;
+}
+
+#result-container {
+    margin-top: 20px;
+}
+
+#result-list img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 10px;
+}
+
+#screenshot-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#screenshot-button:hover {
+    background-color: #218838;
+}
+.option-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    margin: 0 auto;
+}
