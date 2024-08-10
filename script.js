@@ -26,6 +26,7 @@ function switchOption(options) {
     }
     currentOptionIndex = (currentOptionIndex + 1) % options.length;
 
+    // 在每次切换选项时，重新计算切换时间
     clearInterval(intervalId);
     intervalId = setInterval(() => switchOption(options), getSwitchTime());
 }
@@ -58,21 +59,38 @@ function loadQuestion() {
         return;
     }
 
+    // 确保 intervalId 在每次问题加载前被清除
+    clearInterval(intervalId);
     intervalId = setInterval(() => switchOption(options), getSwitchTime());
 
-    optionsContainer.removeEventListener('click', selectOption);
-    optionsContainer.addEventListener('click', selectOption);
+    // 确保只添加一个 click 事件监听器
+    optionsContainer.removeEventListener('mousedown', selectOption);
+    optionsContainer.addEventListener('mousedown', selectOption);
 }
 
 function selectOption(event) {
-    clearInterval(intervalId);
+    if (intervalId !== null) {
+        clearInterval(intervalId);
+        intervalId = null; // 确保 intervalId 不会再次触发
+    } else {
+        return;
+    }
+
+    event.stopImmediatePropagation(); // 阻止后续事件处理，确保没有额外的点击事件触发
+
     const selectedOption = {
         question: questions[currentQuestionIndex].question, // 添加问题标题
         text: event.target.getAttribute('data-text'),
         image: event.target.tagName === 'IMG' ? event.target.src : null,
         id: event.target.getAttribute('data-id')
     };
-    userChoices.push(selectedOption);
+
+    // 确保每个问题只记录一次选择
+    const existingChoice = userChoices.find(choice => choice.question === selectedOption.question);
+    if (!existingChoice) {
+        userChoices.push(selectedOption);
+    }
+
     const nextButton = document.getElementById('next-button');
     nextButton.style.visibility = 'visible'; // 显示按钮
 
